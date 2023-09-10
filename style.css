@@ -1,0 +1,107 @@
+/* Just Basic Css */
+/* ----------- */
+/* Google font */
+/* ----------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@400;800&display=swap");
+
+/* ----------------- */
+/* Custom Properties */
+/* ------------------*/
+
+:root {
+  /* Colors */
+  --blue-grey: #023b59;
+  --purple: #482673;
+  --pseudo-white: #f6ebf4;
+  --blue-green: #4cbfa6;
+
+  --hover: #bf4c65;
+
+  /* Font weights */
+  --regular: 400;
+  --bold: 800;
+}
+
+/* ----- */
+/* Reset */
+/* ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ------------- */
+/* General Style */
+/* ------------- */
+
+body {
+  font-family: "Unbounded", sans-serif;
+  background-color: var(--pseudo-white);
+  min-height: 100vh;
+  text-align: center;
+  font-size: min(2rem, 5vw);
+  letter-spacing: 3px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._container {
+  padding: min(5rem, 10vw);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* --------------- */
+/* Specific Styles */
+/* --------------- */
+.color-text {
+  color: var(--purple);
+}
+.color__changer span {
+  z-index: 100 !important;
+  font-size: min(2rem, 10vw);
+}
+.btn {
+  position: relative;
+  background-color: var(--blue-green);
+  color: var(--pseudo-white);
+  padding: min(2rem, 6vw) min(2rem, 6vw);
+  border-radius: 15px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 0;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--hover);
+  border-radius: 15px;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translate(-50px, 0) scale(0.1);
+  z-index: -1;
+}
+.btn:hover::before {
+  opacity: 1;
+  z-index: -1;
+  transform: scale(1) translate(0, 0);
+}
